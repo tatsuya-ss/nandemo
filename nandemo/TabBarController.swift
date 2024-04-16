@@ -7,7 +7,23 @@
 
 import UIKit
 
+final class TopPresenter {
+    func didLoad() {
+        print("presenter didload")
+    }
+}
+
+final class TabBarControllerFactory {
+    static func create() -> TabBarController {
+        let vc = TabBarController()
+        vc.presenter = TopPresenter()
+        return vc
+    }
+}
+
 final class TabBarController: UITabBarController {
+    
+    fileprivate var presenter: TopPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +31,8 @@ final class TabBarController: UITabBarController {
         setupTab()
         
         print("TabBarController viewDidLoad")
+        
+        presenter!.didLoad()
     }
 
     func setupTab() {

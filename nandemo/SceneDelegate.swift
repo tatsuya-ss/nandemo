@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         print("TabBarインスタンス生成")
-        let vc = TabBarController()
+        let vc = TabBarControllerFactory.create()
         print("TabBarインスタンス生成完了")
         window.rootViewController = vc
         window.makeKeyAndVisible()
