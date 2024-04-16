@@ -33,7 +33,7 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("FirstViewController viewDidLoad")
         view.backgroundColor = .red
     }
 }
@@ -42,7 +42,7 @@ final class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("SecondViewController viewDidLoad")
         view.backgroundColor = .blue
     }
 }
