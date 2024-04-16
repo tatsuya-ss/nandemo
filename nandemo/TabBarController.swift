@@ -8,8 +8,8 @@
 import UIKit
 
 final class TopPresenter {
-    func didLoad() {
-        print("presenter didload")
+    func willAppear() {
+        print("presenter willAppear")
     }
 }
 
@@ -32,7 +32,12 @@ final class TabBarController: UITabBarController {
         
         print("TabBarController viewDidLoad")
         
-        presenter!.didLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        presenter!.willAppear()
     }
 
     func setupTab() {
