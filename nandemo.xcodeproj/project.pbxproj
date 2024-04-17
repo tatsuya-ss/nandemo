@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		750C77572BCEC7770025F015 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750C77562BCEC7770025F015 /* TabBarController.swift */; };
+		750C77592BCF58A90025F015 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750C77582BCF58A90025F015 /* OverlayView.swift */; };
+		750C775B2BCF58B80025F015 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750C775A2BCF58B80025F015 /* OverlayView.xib */; };
 		7563D72D2BCEA29A0039096D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563D72C2BCEA29A0039096D /* AppDelegate.swift */; };
 		7563D72F2BCEA29A0039096D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7563D72E2BCEA29A0039096D /* SceneDelegate.swift */; };
 		7563D7362BCEA29B0039096D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7563D7352BCEA29B0039096D /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		750C77562BCEC7770025F015 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		750C77582BCF58A90025F015 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		750C775A2BCF58B80025F015 /* OverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		7563D7292BCEA29A0039096D /* nandemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nandemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7563D72C2BCEA29A0039096D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7563D72E2BCEA29A0039096D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				7563D72C2BCEA29A0039096D /* AppDelegate.swift */,
 				7563D72E2BCEA29A0039096D /* SceneDelegate.swift */,
 				750C77562BCEC7770025F015 /* TabBarController.swift */,
+				750C77582BCF58A90025F015 /* OverlayView.swift */,
+				750C775A2BCF58B80025F015 /* OverlayView.xib */,
 				7563D7352BCEA29B0039096D /* Assets.xcassets */,
 				7563D7372BCEA29B0039096D /* LaunchScreen.storyboard */,
 				7563D73A2BCEA29B0039096D /* Info.plist */,
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7563D7392BCEA29B0039096D /* LaunchScreen.storyboard in Resources */,
+				750C775B2BCF58B80025F015 /* OverlayView.xib in Resources */,
 				7563D7362BCEA29B0039096D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				750C77572BCEC7770025F015 /* TabBarController.swift in Sources */,
+				750C77592BCF58A90025F015 /* OverlayView.swift in Sources */,
 				7563D72D2BCEA29A0039096D /* AppDelegate.swift in Sources */,
 				7563D72F2BCEA29A0039096D /* SceneDelegate.swift in Sources */,
 			);
