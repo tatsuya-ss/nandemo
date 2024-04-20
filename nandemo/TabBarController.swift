@@ -9,7 +9,6 @@ import UIKit
 
 final class TopPresenter {
     func willAppear() {
-        print("presenter willAppear")
     }
 }
 
@@ -18,6 +17,21 @@ final class TabBarControllerFactory {
         let vc = TabBarController()
         vc.presenter = TopPresenter()
         return vc
+    }
+}
+
+extension TabBarController : OverlayViewDelegate {
+    func onTap() {
+        print(#function)
+        navigationController?.pushViewController(ThirdViewController(), animated: true)
+
+    }
+    
+    func segue() {
+        print(#function)
+        guard let vc = viewControllers?.first?.children.first as? UIViewController else { return }
+        vc.navigationController?.pushViewController(ThirdViewController(), animated: true)
+
     }
 }
 
@@ -31,16 +45,14 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         setupBaseView()
         setupTab()
-        
-        print("TabBarController viewDidLoad")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
-        presenter!.willAppear()
+        presenter?.willAppear()
         
         let overlayView = OverlayView(frame: CGRect(x: 0, y: -tabBar.frame.height, width: UIScreen.main.bounds.width, height: 50))
+        overlayView.setUp(delegagte: self)
         overlayView.backgroundColor = .black
         tabBar.addSubview(overlayView)
         viewDidLayoutSubviews()
@@ -57,12 +69,17 @@ final class TabBarController: UITabBarController {
 
     func setupTab() {
         let firstViewController = FirstViewController()
-        firstViewController.tabBarItem = UITabBarItem(title: "tab1", image: .none, tag: 0)
+        let firstNavigationController = UINavigationController(rootViewController: firstViewController)
+        firstNavigationController.tabBarItem = UITabBarItem(title: "tab1", image: .none, tag: 0)
+        
+        print(firstViewController.navigationController)
+        print(firstNavigationController.navigationController)
 
         let secondViewController = SecondViewController()
-        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        let secondNavigationController = UINavigationController(rootViewController: secondViewController)
+        secondNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
 
-        viewControllers = [firstViewController, secondViewController]
+        viewControllers = [firstNavigationController, secondNavigationController]
         
         tabBar.backgroundColor = .white
     }
@@ -73,8 +90,21 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("FirstViewController viewDidLoad")
         view.backgroundColor = .red
+        
+        let button = UIButton()
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        button.backgroundColor = .yellow
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func buttonClicked() {
+        navigationController?.pushViewController(ThirdViewController(), animated: true)
     }
 }
 
@@ -82,7 +112,14 @@ final class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SecondViewController viewDidLoad")
         view.backgroundColor = .blue
+    }
+}
+
+final class ThirdViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .yellow
     }
 }

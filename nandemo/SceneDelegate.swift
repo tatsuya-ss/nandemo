@@ -17,9 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene as! UIWindowScene)
         self.window = window
 
-        print("TabBarインスタンス生成")
         let vc = TabBarControllerFactory.create()
-        print("TabBarインスタンス生成完了")
         window.rootViewController = vc
         window.makeKeyAndVisible()
     }
@@ -42,13 +40,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print(#function)
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        print(#function)
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
